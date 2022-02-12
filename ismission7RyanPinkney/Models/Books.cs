@@ -15,9 +15,10 @@ namespace ismission7RyanPinkney.Models
     {
 
         // Field to store the book id
+        // Changed to integer
         [Required]
         [Key]
-        public long BookId { get; set; }
+        public int BookId { get; set; }
 
         // Field to store the title
         public string Title { get; set; }
