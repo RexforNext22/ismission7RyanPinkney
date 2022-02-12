@@ -41,7 +41,7 @@ namespace ismission7RyanPinkney.Models
         // Changed to an integer
         public int PageCount { get; set; }
 
-        // Changed to a decomial which is better for money
+        // Changed to a decimal which is better for money
         public decimal Price { get; set; }
     }
 }
