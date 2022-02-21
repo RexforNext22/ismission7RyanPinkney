@@ -1,0 +1,18 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model IEnumerable<string>
+
+<h2>Check out the different types</h2>
+
+@foreach (string t in Model)
+{
+    <a asp-controller="Home" asp-action="List" asp-route-category="@t" asp-route-iPageNum="1"
+       class="btn @(ViewBag.SelectedType == t ? "btn-primary" : "btn-secondary")">@t</a>
+    <br />
+    <br />
+// This line is just like a if statement
+} 

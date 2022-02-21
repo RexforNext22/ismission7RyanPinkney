@@ -68,6 +68,25 @@ namespace ismission7RyanPinkney
 
             app.UseEndpoints(endpoints =>
             {
+                // This one first
+                endpoints.MapControllerRoute(
+                    name: "category",
+                    pattern: "{category}/{iPageNum}",
+                    defaults: new { Controller = "Home", action = "List" });
+
+                // This one first
+                endpoints.MapControllerRoute(
+                    name: "Paging",
+                    pattern: "Page{iPageNum}",
+                    defaults: new { Controller = "Home", action = "List", iPageNum = 1 });
+
+
+                // This one first
+                endpoints.MapControllerRoute(
+                    name: "type",
+                    pattern: "{category}",
+                    defaults: new { Controller = "Home", action = "List", iPageNum = 1 });
+
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");

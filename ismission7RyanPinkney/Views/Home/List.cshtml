@@ -12,41 +12,29 @@
 
 <!--Retrieves the list from the controller-->
 @model BooksViewModels
-<!--Title-->
-<h1>Books for Sale in Stock: </h1>
 
-@foreach (Books iCount in Model.Books)
-{<!-- Model needs to be capitalized-->
-
-    <!-- Use bootstrap styling to design each individual book on the page.
-        I followed the styling from the textbook as specified by the instructions.
-        -->
-    <div class="card card-outline-primary m-1 p-1">
-        <div class="bg-faded p-1">
-            <h4>
-
-                <!-- Display the title-->
-                @iCount.Title
-                <span class="badge badge-pill badge-primary" style="float:right">
-
-                    <!-- Display the price-->
-                    <small>$@iCount.Price</small>
-                </span>
-            </h4>
-        </div>
-
-        <!--Display each of the values from the database-->
-        <div class="card-text p-1">
-            <p>Author: @iCount.Author</p>
-            <p>Publisher: @iCount.Publisher</p>
-            <p>ISBN: @iCount.Isbn</p>
-            <p>Classification: @iCount.Classification</p>
-            <p>Category: @iCount.Category</p>
-            <p>Page Count: @iCount.PageCount</p>
-        </div>
+<!--New formating-->
+<div class="row">
+    <div class="col-3">
+        <vc:types></vc:types>
     </div>
+    <div class="col-9">
 
-}
+        <!--Title-->
+        <h1>Books for Sale in Stock: </h1>
+
+
+        <!--Rows-->
+        @foreach (Books iCount in Model.Books)
+        {
+
+            // Allows us to make a module of html to reuse on multiple pages
+            <partial name="BookSummary" model="iCount" />
+
+        }
+    </div>
+</div>
+
 
 <!--Buttons to go to the next page. I used the styling defined in the textbook-->
 <h6>Pages: </h6>

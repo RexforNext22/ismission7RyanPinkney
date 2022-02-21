@@ -12,6 +12,9 @@
     <None Remove="Infrastructure\" />
     <None Remove="Models\ViewModels\" />
     <None Remove="Twitter.Bootstrap" />
+    <None Remove="Components\" />
+    <None Remove="Views\Shared\Components\" />
+    <None Remove="Views\Shared\Components\Types\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.22" />
@@ -29,5 +32,8 @@
   <ItemGroup>
     <Folder Include="Infrastructure\" />
     <Folder Include="Models\ViewModels\" />
+    <Folder Include="Components\" />
+    <Folder Include="Views\Shared\Components\" />
+    <Folder Include="Views\Shared\Components\Types\" />
   </ItemGroup>
 </Project>

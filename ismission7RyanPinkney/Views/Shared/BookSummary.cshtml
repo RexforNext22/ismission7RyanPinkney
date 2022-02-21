@@ -1,0 +1,49 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model Books
+<!-- Model needs to be capitalized-->
+<!-- Use bootstrap styling to design each individual book on the page.
+I followed the styling from the textbook as specified by the instructions.
+-->
+<div class="card card-outline-primary m-1 p-1">
+    <div class="bg-faded p-1">
+        <h4>
+
+            <!-- Display the title-->
+            @Model.Title
+            <span class="badge badge-pill badge-primary" style="float:right">
+
+                <!-- Display the price-->
+                <small>$@Model.Price</small>
+            </span>
+        </h4>
+    </div>
+
+    <!--Display each of the values from the database-->
+    <div class="card-text p-1">
+        <p>Author: @Model.Author</p>
+        <p>Publisher: @Model.Publisher</p>
+        <p>ISBN: @Model.Isbn</p>
+        <p>Classification: @Model.Classification</p>
+        <p>Category: @Model.Category</p>
+        <p>Page Count: @Model.PageCount</p>
+    </div>
+
+    <!--<form method="post" asp-page="/Buy">-->
+    <!--Pass some information to the razor page-->
+    <!--<input type="hidden" asp-for="Model.ProjectId" />
+        <input type="hidden" name="returnUrl" value="ViewContext.HttpContext.Request.PathAndQuery()" />
+
+        <span class="card-text">
+            <button type="submit" class="btn btn-success btn-small float-right">Donate</button>
+        </span>
+    </form>-->
+
+
+
+
+</div>

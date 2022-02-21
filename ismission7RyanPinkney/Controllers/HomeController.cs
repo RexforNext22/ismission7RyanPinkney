@@ -35,7 +35,7 @@ namespace ismission7RyanPinkney.Controllers
 
         // This is the Get route for the List
         [HttpGet]
-        public IActionResult List(int iPageNum = 1)
+        public IActionResult List(string category, int iPageNum = 1)
         {
             // Set the number of results
             int iPageSize = 10;
@@ -44,12 +44,15 @@ namespace ismission7RyanPinkney.Controllers
             var x = new BooksViewModels
             {
                 Books = repo.Books
+                .Where(p => p.Category == category || category == null)
+                .OrderBy(p => p.Title)
                 .Skip(iPageSize * (iPageNum - 1))
                 .Take(iPageSize),
 
                 PageInfo = new PageInfo
                 {
-                    iTotalBooksNum = repo.Books.Count(),
+                    iTotalBooksNum = (category == null
+                    ? repo.Books.Count() : repo.Books.Where(x => x.Category == category).Count()),
                     iBooksPerPage = iPageSize,
                     iCurrentPage = iPageNum
                 }
