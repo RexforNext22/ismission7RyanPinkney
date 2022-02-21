@@ -40,7 +40,7 @@ namespace ismission7RyanPinkney.Controllers
             // Set the number of results
             int iPageSize = 10;
 
-            
+            // Set the value of x by evaluate the category that is passed through the varaible
             var x = new BooksViewModels
             {
                 Books = repo.Books
@@ -49,6 +49,7 @@ namespace ismission7RyanPinkney.Controllers
                 .Skip(iPageSize * (iPageNum - 1))
                 .Take(iPageSize),
 
+                // Set the page info and determine whether the category passed in was null
                 PageInfo = new PageInfo
                 {
                     iTotalBooksNum = (category == null
@@ -60,7 +61,7 @@ namespace ismission7RyanPinkney.Controllers
             };
 
   
-
+            // Return the variable x from above
             return View(x);
         }
 

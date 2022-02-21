@@ -1,4 +1,8 @@
-﻿using System;
+﻿// Author Ryan Pinkney
+// This is my model/controller for the buy razor page
+
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;

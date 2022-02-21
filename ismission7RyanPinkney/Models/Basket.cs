@@ -19,7 +19,7 @@ namespace ismission7RyanPinkney.Models
             {
                 BasketLineItem Line = Items.Where(x => x.Books.BookId == book.BookId).FirstOrDefault();
 
-                if (Line is null)
+                if (Line is null) // Add the item to the list of basket
                 {
                     Items.Add(new BasketLineItem
                     {
@@ -33,9 +33,10 @@ namespace ismission7RyanPinkney.Models
                 }
             }
 
+        // Method to calculate the total
             public double CalcualteTotal()
             {
-                double sum = (double) Items.Sum(x => x.Quantity * x.Books.Price);
+                double sum = (double) Items.Sum(x => x.Quantity * x.Books.Price); // Use the price of the book here to calculate the total
 
                 return sum;
             }
@@ -43,7 +44,7 @@ namespace ismission7RyanPinkney.Models
         }
 
 
-
+        // Class to hold each of the properties of our basket
         public class BasketLineItem
         {
 
