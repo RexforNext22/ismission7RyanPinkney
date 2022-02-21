@@ -8,10 +8,10 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ismission7RyanPinkney.Components
 {
-    public class TypesViewComponent : ViewComponent
+    public class TypesViewComponent : ViewComponent // Inherit from view component
     {
 
-
+        // Declare our repositry
         private iBookstoreRepository repo { get; set; }
 
         public TypesViewComponent(iBookstoreRepository temp)
@@ -19,6 +19,7 @@ namespace ismission7RyanPinkney.Components
             repo = temp;
         }
 
+        // Query out all the category titles from the database
         public IViewComponentResult Invoke()
         {
 
@@ -30,6 +31,7 @@ namespace ismission7RyanPinkney.Components
                 .Distinct()
                 .OrderBy(x => x);
 
+            // Return all the types to the view
             return View(types);
         }
 

@@ -33,15 +33,15 @@ I followed the styling from the textbook as specified by the instructions.
         <p>Page Count: @Model.PageCount</p>
     </div>
 
-    <!--<form method="post" asp-page="/Buy">-->
+    <form method="post" asp-page="/Buy">
     <!--Pass some information to the razor page-->
-    <!--<input type="hidden" asp-for="Model.ProjectId" />
-        <input type="hidden" name="returnUrl" value="ViewContext.HttpContext.Request.PathAndQuery()" />
+    <input type="hidden" asp-for="@Model.BookId" />
+        <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()" />
 
         <span class="card-text">
-            <button type="submit" class="btn btn-success btn-small float-right">Donate</button>
+            <button type="submit" class="btn btn-success btn-small float-right">Buy</button>
         </span>
-    </form>-->
+    </form>
 
 
 

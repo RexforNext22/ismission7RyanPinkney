@@ -42,6 +42,13 @@ namespace ismission7RyanPinkney
             // Add this to add the repository; service configuration for the repository
             services.AddScoped<iBookstoreRepository, efBookstoreRepository>();
 
+            // Add this to add razor pages
+            services.AddRazorPages();
+
+
+            // Add the session service
+            services.AddDistributedMemoryCache();
+            services.AddSession();
 
 
         }
@@ -62,6 +69,10 @@ namespace ismission7RyanPinkney
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
+            //Add this for sessions; added by ryan
+            app.UseSession();
+
+
             app.UseRouting();
 
             app.UseAuthorization();
@@ -69,12 +80,14 @@ namespace ismission7RyanPinkney
             app.UseEndpoints(endpoints =>
             {
                 // This one first
+                // Endpoint for when we have a category and a page number
                 endpoints.MapControllerRoute(
                     name: "category",
                     pattern: "{category}/{iPageNum}",
                     defaults: new { Controller = "Home", action = "List" });
 
                 // This one first
+                // Endpoint for when we just have an page number
                 endpoints.MapControllerRoute(
                     name: "Paging",
                     pattern: "Page{iPageNum}",
@@ -82,14 +95,26 @@ namespace ismission7RyanPinkney
 
 
                 // This one first
+                // Endpoint for when we just have a category
                 endpoints.MapControllerRoute(
                     name: "type",
                     pattern: "{category}",
                     defaults: new { Controller = "Home", action = "List", iPageNum = 1 });
 
+                // Endpoint for the default
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+
+                // This is second
+                endpoints.MapDefaultControllerRoute();
+
+
+                // Add this for Razor pages
+                endpoints.MapRazorPages();
+
+
             });
         }
     }
