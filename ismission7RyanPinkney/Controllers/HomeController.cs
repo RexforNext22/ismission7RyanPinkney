@@ -38,7 +38,7 @@ namespace ismission7RyanPinkney.Controllers
         public IActionResult List(string category, int iPageNum = 1)
         {
             // Set the number of results
-            int iPageSize = 10;
+            int iPageSize = 3;
 
             // Set the value of x by evaluate the category that is passed through the varaible
             var x = new BooksViewModels
