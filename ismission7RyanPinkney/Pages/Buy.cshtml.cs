@@ -34,6 +34,7 @@ namespace ismission7RyanPinkney.Pages
         public string ReturnUrl { get; set; }
 
 
+        // Get method for the pages
         public void OnGet(string returnUrl)
         {
 

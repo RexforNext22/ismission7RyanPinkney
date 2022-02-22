@@ -1,4 +1,5 @@
-﻿<!--Author Ryan Pinkney
+﻿@page
+<!--Author Ryan Pinkney
 
 This is my buy shopping cart page
 -->
@@ -34,8 +35,8 @@ This is my buy shopping cart page
             <tr>
                 <td>@i.Books.Title</td>
                 <td>@i.Quantity</td>
-                <td>@i.Books.Price</td>
-                <td>@(i.Quantity * i.Books.Price)</td> <!--Utilize the price of the book-->
+                <td>$@i.Books.Price</td>
+                <td>$@(i.Quantity * i.Books.Price)</td> <!--Utilize the price of the book-->
             </tr>
 
 
@@ -47,7 +48,7 @@ This is my buy shopping cart page
             <td colspan="3">
                 Total:
             </td>
-            <td>@Model.Basket.CalcualteTotal().ToString("c")</td> <!--Call the method to calculate the total-->
+            <td>$@Model.Basket.CalcualteTotal().ToString()</td> <!--Call the method to calculate the total-->
         </tr>
 
     </tfoot>
