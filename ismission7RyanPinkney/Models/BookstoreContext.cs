@@ -22,7 +22,11 @@ namespace ismission7RyanPinkney.Models
         {
         }
 
+        // Set the db for the books
         public virtual DbSet<Books> Books { get; set; }
+
+        // Set the db for the purchases
+        public virtual DbSet<Purchase> Purchases { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

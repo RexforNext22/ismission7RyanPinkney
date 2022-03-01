@@ -20,18 +20,19 @@ namespace ismission7RyanPinkney.Pages
         private iBookstoreRepository repo { get; set; }
 
 
-        public BuyModel (iBookstoreRepository temp)
-        {
-            repo = temp;
-        }
-
-
-
         //Instance of the basket
         public Basket Basket { get; set; }
 
         // For the return url
         public string ReturnUrl { get; set; }
+
+
+
+        public BuyModel (iBookstoreRepository temp, Basket b)
+        {
+            repo = temp;
+            Basket = b;
+        }
 
 
         // Get method for the pages

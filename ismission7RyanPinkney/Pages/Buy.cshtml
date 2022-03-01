@@ -36,11 +36,11 @@ This is my buy shopping cart page
             <td>@i.Books.Title</td>
             <td>@i.Quantity</td>
             <td>$@i.Books.Price</td>
-            <td>$@(i.Quantity * i.Books.Price).00</td> <!--Utilize the price of the book-->
+            <td>$@(i.Quantity * i.Books.Price)</td> <!--Utilize the price of the book-->
             <!--Form delete button-->
             <td class="text-center">
                 <form method="post" asp-page-handler="Remove">
-                    <input type="hidden" name="projectId" value="@i.Books.BookId" />
+                    <input type="hidden" name="bookid" value="@i.Books.BookId" />
 
                     <input type="hidden" name="returnUrl" value="@Model.ReturnUrl" />
 
@@ -61,7 +61,7 @@ This is my buy shopping cart page
             <td colspan="3">
                 Total:
             </td>
-            <td>$@Model.Basket.CalcualteTotal().00</td> <!--Call the method to calculate the total-->
+            <td>$@Model.Basket.CalcualteTotal()</td> <!--Call the method to calculate the total-->
         </tr>
 
     </tfoot>
@@ -71,4 +71,5 @@ This is my buy shopping cart page
 <!--Return url button-->
 <div>
     <a class="btn btn-primary" href="@Model.ReturnUrl">Continue Shopping</a>
+    <a class="btn btn-primary" asp-controller="Purchase" asp-action="Checkout">Checkout</a>
 </div>
