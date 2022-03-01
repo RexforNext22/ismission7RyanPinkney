@@ -12,12 +12,12 @@
     @if (Model.Items.Count() > 0)
     {
         <small class="navbar-text">
-            <b>Your cart:</b>
+            <b>Inside:</b>
             @Model.Items.Sum(x => x.Quantity) item(s)
-            $@Model.CalcualteTotal()
+            Total: $@Model.CalcualteTotal()
         </small>
     }
-    <a class="btn btn-sm btn-secondary navbar-btn" asp-page="/Cart"
+    <a class="btn btn-sm btn-secondary navbar-btn" asp-page="/Buy"
        asp-route-returnurl="@ViewContext.HttpContext.Request.PathAndQuery()">
         <i class="fa fa-shopping-cart"></i>
     </a>
