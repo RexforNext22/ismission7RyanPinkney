@@ -59,6 +59,17 @@ namespace ismission7RyanPinkney.Pages
 
         }
 
+        // For the post method
+        public IActionResult OnPostRemove(int bookid, string returnUrl)
+        {
+
+            Basket.RemoveItem(Basket.Items.First(x => x.Books.BookId == bookid).Books);
+
+
+            return RedirectToPage(new { ReturnUrl = returnUrl });
+
+        }
+
 
     }
 }

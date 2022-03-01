@@ -32,12 +32,25 @@ This is my buy shopping cart page
         @foreach (var i in Model.Basket.Items)
         {
             <!--Rows-->
-            <tr>
-                <td>@i.Books.Title</td>
-                <td>@i.Quantity</td>
-                <td>$@i.Books.Price</td>
-                <td>$@(i.Quantity * i.Books.Price)</td> <!--Utilize the price of the book-->
-            </tr>
+        <tr>
+            <td>@i.Books.Title</td>
+            <td>@i.Quantity</td>
+            <td>$@i.Books.Price</td>
+            <td>$@(i.Quantity * i.Books.Price).00</td> <!--Utilize the price of the book-->
+            <!--Form delete button-->
+            <td class="text-center">
+                <form method="post" asp-page-handler="Remove">
+                    <input type="hidden" name="projectId" value="@i.Books.BookId" />
+
+                    <input type="hidden" name="returnUrl" value="@Model.ReturnUrl" />
+
+                    <button type="submit" class="btn btn-small btn-danger">Remove</button>
+                </form>
+
+
+            </td>
+
+        </tr>
 
 
         }
@@ -48,7 +61,7 @@ This is my buy shopping cart page
             <td colspan="3">
                 Total:
             </td>
-            <td>$@Model.Basket.CalcualteTotal().ToString()</td> <!--Call the method to calculate the total-->
+            <td>$@Model.Basket.CalcualteTotal().00</td> <!--Call the method to calculate the total-->
         </tr>
 
     </tfoot>

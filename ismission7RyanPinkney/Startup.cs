@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using ismission7RyanPinkney.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -49,6 +50,10 @@ namespace ismission7RyanPinkney
             // Add the session service
             services.AddDistributedMemoryCache();
             services.AddSession();
+
+            // Add the service for the session basket
+            services.AddScoped<Basket>(x => SessionBasket.GetBasket(x));
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
 
         }
