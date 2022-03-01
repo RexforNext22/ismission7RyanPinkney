@@ -38,6 +38,8 @@ namespace ismission7RyanPinkney.Controllers
         public IActionResult Checkout(Purchase purchase)
         {
 
+            // Make sure the information is inputted correctly
+            // Also verify that the basket is not empty
             if (basket.Items.Count() == 0)
             {
                 ModelState.AddModelError("", "Sorry, your basket is empty");
@@ -45,17 +47,19 @@ namespace ismission7RyanPinkney.Controllers
 
             if (ModelState.IsValid)
             {
-
+                // Clear the basket once the purchase is made
                 purchase.Lines = basket.Items.ToArray();
                 repo.SavePurchase(purchase);
                 basket.ClearBasket();
 
+                // Redirect to the purchase completed confirmation page
                 return RedirectToPage("/PurchaseCompleted");
 
 
             }
             else
             {
+                // Take them back to checkout
                 return View();
             }
 

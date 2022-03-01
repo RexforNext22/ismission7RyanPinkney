@@ -1,13 +1,15 @@
 ﻿@page
 @{
+
+    <!--Set the tab title-->
+    ViewData["Title"] = "Thank You";
 }
 
 <!--Author: Ryan Pinkney
 
     This is the confirmation page for the purchase
     -->
-
-
+<!--Display a thank you message and button to take them home-->
 <div class="text-center">
     <h2>Thank you for your purchase!</h2>
     <a class="btn btn-primary" asp-controller="Home" asp-action="Index">Return Home</a>
