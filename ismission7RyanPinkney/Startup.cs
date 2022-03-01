@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ismission7RyanPinkney.Models;
+using ismission7RyanPinkney.Models.ViewModels;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -42,6 +43,7 @@ namespace ismission7RyanPinkney
 
             // Add this to add the repository; service configuration for the repository
             services.AddScoped<iBookstoreRepository, efBookstoreRepository>();
+            services.AddScoped<iPurchaseRepository, efPurchaseRepository>();
 
             // Add this to add razor pages
             services.AddRazorPages();
