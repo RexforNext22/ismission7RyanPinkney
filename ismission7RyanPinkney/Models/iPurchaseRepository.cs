@@ -6,12 +6,12 @@ using System.Linq;
 
 namespace ismission7RyanPinkney.Models
 {
-    public class iPurchaseRepository
+    public interface iPurchaseRepository
     {
         // Set the iqueryable
         IQueryable<Purchase> Purchases { get; }
 
-        public void SavePurchase(Purchase purchase);
+        void SavePurchase (Purchase purchase);
 
 
 
