@@ -1,4 +1,7 @@
-﻿using System;
+﻿// Author Ryan Pinkney
+// this is the Cart Summary view component used to make the cart icon display the correct total and numner of items
+
+using System;
 using ismission7RyanPinkney.Models;
 using Microsoft.AspNetCore.Mvc;
 

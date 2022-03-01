@@ -7,7 +7,14 @@
 @{
 }
 
+<!-- Author Ryan Pinkney
+    This is the default page for the cart summary view component
+    -->
+
+<!--Bring in the basket model-->
 @model Basket
+
+<!-- Display the number of items and cost-->
 <div class="">
     @if (Model.Items.Count() > 0)
     {
@@ -17,6 +24,8 @@
             Total: $@Model.CalcualteTotal()
         </small>
     }
+
+    <!-- Button to take the user to the buy page-->
     <a class="btn btn-sm btn-secondary navbar-btn" asp-page="/Buy"
        asp-route-returnurl="@ViewContext.HttpContext.Request.PathAndQuery()">
         <i class="fa fa-shopping-cart"></i>
