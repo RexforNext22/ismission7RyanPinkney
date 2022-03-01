@@ -37,6 +37,7 @@ This is my buy shopping cart page
             <td>@i.Quantity</td>
             <td>$@i.Books.Price</td>
             <td>$@(i.Quantity * i.Books.Price)</td> <!--Utilize the price of the book-->
+
             <!--Form delete button-->
             <td class="text-center">
                 <form method="post" asp-page-handler="Remove">
@@ -70,6 +71,6 @@ This is my buy shopping cart page
 
 <!--Return url button-->
 <div>
-    <a class="btn btn-primary" href="@Model.ReturnUrl">Continue Shopping</a>
-    <a class="btn btn-primary" asp-controller="Purchase" asp-action="Checkout">Checkout</a>
+    <a class="btn btn-primary" href="@Model.ReturnUrl">Continue Shopping</a> <!--Button to continue shopping-->
+    <a class="btn btn-primary" asp-controller="Purchase" asp-action="Checkout">Checkout</a> <!--Button to checkout-->
 </div>

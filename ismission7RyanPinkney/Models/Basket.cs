@@ -3,6 +3,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 
 namespace ismission7RyanPinkney.Models
@@ -62,12 +63,13 @@ namespace ismission7RyanPinkney.Models
     public class BasketLineItem
         {
 
-            // Properties for our basket
-            public int LineId { get; set; }
+        // Properties for our basket
+        [Key]
+        public int LineId { get; set; }
 
-            public Books Books { get; set; }
+        public Books Books { get; set; }
 
-            public int Quantity { get; set; }
+        public int Quantity { get; set; }
 
 
         }
