@@ -37,15 +37,19 @@ namespace ismission7RyanPinkney.Models
         public string Isbn { get; set; }
 
         // Field to store the classification
+        [Required]
         public string Classification { get; set; }
 
         // Field to store the category
+        [Required]
         public string Category { get; set; }
 
         // Changed to an integer
+
         public int PageCount { get; set; }
 
         // Changed to a decimal which is better for money
+        [Required]
         public decimal Price { get; set; }
     }
 }
