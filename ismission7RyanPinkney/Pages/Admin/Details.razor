@@ -1,0 +1,43 @@
+﻿@page "/admin/projects/details/{id:long}"
+
+
+<h3 class="bg-info text-white text-center p-1">Details</h3>
+
+<table class="table table-sm table-striped table-bordered">
+    <tbody>
+        <tr><th>Book ID:</th><td>@book.BookId</td></tr>
+        <tr><th>Title:</th><td>@book.Title</td></tr>
+        <tr><th>Author:</th><td>@book.Author</td></tr>
+        <tr><th>Publisher:</th><td>@book.Publisher</td></tr>
+        <tr><th>Category:</th><td>@book.Category</td></tr>
+        <tr><th>ISBN:</th><td>@book.Isbn</td></tr>
+        <tr><th>Classification:</th><td>@book.Classification</td></tr>
+        <tr><th>Page Count:</th><td>@book.PageCount</td></tr>
+        <tr><th>Price:</th><td>@book.Price</td></tr>
+    </tbody>
+</table>
+
+<NavLink class="btn btn-warning" href="@EditUrl">Edit</NavLink>
+<NavLink class="btn btn-secondary" href="/admin">Back</NavLink>
+
+
+@code {
+
+    [Inject]
+    public iBookstoreRepository repo { get; set; }
+
+    [Parameter]
+    public long Id { get; set; }
+
+    public Books book { get; set; }
+
+    protected override void OnParametersSet()
+    {
+        book = repo.Books.FirstOrDefault(x => x.BookId == Id);
+    }
+
+
+    public string EditUrl => $"/admin/books/edit/{book.BookId}";
+
+
+}

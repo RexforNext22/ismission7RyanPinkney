@@ -53,6 +53,10 @@ namespace ismission7RyanPinkney.Models
         [Required(ErrorMessage = "Please enter a country")]
         public string Country { get; set; }
 
+        // For the blazor
+        [BindNever]
+        public bool OrderCompleted { get; set; }
+
 
     }
 }

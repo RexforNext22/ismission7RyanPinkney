@@ -19,6 +19,7 @@
     <None Remove="Views\Purchase\" />
     <None Remove="Font.Awesome" />
     <None Remove="Views\Shared\Components\CartSummary\" />
+    <None Remove="Pages\Admin\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.22" />
@@ -43,5 +44,6 @@
     <Folder Include="Pages\" />
     <Folder Include="Views\Purchase\" />
     <Folder Include="Views\Shared\Components\CartSummary\" />
+    <Folder Include="Pages\Admin\" />
   </ItemGroup>
 </Project>

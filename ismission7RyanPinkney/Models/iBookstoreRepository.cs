@@ -14,6 +14,17 @@ namespace ismission7RyanPinkney.Models
             // Set the iQueryable
             IQueryable<Books> Books { get; }
 
-        }
+
+        // For the admin interface
+        public void SaveBook(Books b);
+        public void CreateBook(Books b);
+        public void DeleteBook(Books b);
+
+
+
+
+
+
+    }
 
 }

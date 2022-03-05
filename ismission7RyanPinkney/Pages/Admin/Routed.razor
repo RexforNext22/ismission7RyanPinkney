@@ -1,0 +1,15 @@
+﻿<!--Author Ryan Pinkney This is my routed file that sets the dafult layout and the notfound error message-->
+<Router AppAssembly="typeof(Startup).Assembly">
+
+    <!--Found message and set the deafult layout-->
+    <Found>
+        <RouteView RouteData="@context" DefaultLayout="typeof(AdminLayout)"></RouteView>
+
+    </Found>
+
+    <!--Not found error message-->
+    <NotFound>
+        <h4 class="bg-danger text-white text-center p-2">No Matching Route Found</h4>
+    </NotFound>
+
+</Router>

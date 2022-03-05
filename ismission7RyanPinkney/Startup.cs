@@ -57,6 +57,10 @@ namespace ismission7RyanPinkney
             services.AddScoped<Basket>(x => SessionBasket.GetBasket(x));
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
+            // Add these services for the admin
+            // Blazor Services
+            services.AddServerSideBlazor();
+
 
         }
 
@@ -121,6 +125,9 @@ namespace ismission7RyanPinkney
                 // Add this for Razor pages
                 endpoints.MapRazorPages();
 
+                // Blazor endpoints
+                endpoints.MapBlazorHub();
+                endpoints.MapFallbackToPage("/admin/{*catchall}", "/Admin/Index");
 
             });
         }

@@ -1,0 +1,51 @@
+﻿<!--Author: Ryan Pinkney
+
+This is my project blazor page-->
+@page "/admin/orders"
+@inherits OwningComponentBase<iPurchaseRepository>
+
+<OrdersTable TableTitle="Uncompleted Orders" Orders="UncompletedOrders" ButtonLabel="Complete" OrderSelected="CompleteOrder">
+
+</OrdersTable>
+
+<OrdersTable TableTitle="Completed Orders" Orders="CompletedOrders" ButtonLabel="Reset" OrderSelected="ResetOrder">
+
+</OrdersTable>
+
+
+<button class="btn btn-info" @onclick="@(x => UpdateData())">Refresh Data</button>
+
+@code {
+
+    public iPurchaseRepository repo => Service;
+
+    public IEnumerable<Purchase> AllOrders { get; set; }
+    public IEnumerable<Purchase> UncompletedOrders { get; set; }
+    public IEnumerable<Purchase> CompletedOrders { get; set; }
+
+    protected async override Task OnInitializedAsync()
+    {
+        await UpdateData();
+    }
+
+    public async Task UpdateData()
+    {
+        AllOrders = await repo.Purchases.ToArrayAsync();
+
+        UncompletedOrders = AllOrders.Where(x => !x.OrderCompleted);
+
+        CompletedOrders = AllOrders.Where(x => x.OrderCompleted);
+    }
+
+    public void CompleteOrder(int id) => UpdateOrder(id, true);
+    public void ResetOrder(int id) => UpdateOrder(id, false);
+
+
+    private void UpdateOrder(int id, bool donated)
+    {
+        Purchase d = repo.Purchases.FirstOrDefault(x => x.OrderId == id);
+        d.OrderCompleted = donated;
+        repo.SavePurchase(d);
+    }
+
+}
