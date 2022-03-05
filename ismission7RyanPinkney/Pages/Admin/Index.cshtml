@@ -3,19 +3,29 @@
 @{
 }
 
+<!-- Author Ryan Pinkney
+    This is the index page for the blazor section
+    -->
+
 <!DOCTYPE html>
 
 <html>
 <head>
 
+    <!-- Set the title-->
     <title>Bookstore Admin</title>
+
+    <!--Bring in th styling-->
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
     <base href="/" />
 </head>
 
 <body>
+    <!--Bring in the componet for the routed file-->
     <component type="typeof(ismission7RyanPinkney.Pages.Admin.Routed)" render-mode="Server" />
+
+    <!-- Bring in the javascript packages for blazor-->
     <script src="/_framework/blazor.server.js"></script>
 
 

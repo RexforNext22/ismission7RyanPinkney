@@ -4,6 +4,8 @@
 
 This is my project blazor page-->
 
+
+<!-- Display the talbes-->
 <OrderTable TableTitle="Uncompleted Orders" Orders="UncompletedOrders" ButtonLabel="Complete" OrderSelected="CompleteOrder">
 
 </OrderTable>
@@ -17,7 +19,7 @@ This is my project blazor page-->
 
 
 @code {
-
+    // Configure the database
     public iPurchaseRepository repo => Service;
 
     public IEnumerable<Purchase> AllOrders { get; set; }
@@ -29,6 +31,7 @@ This is my project blazor page-->
         await UpdateData();
     }
 
+    // Update the tables dynamically
     public async Task UpdateData()
     {
         AllOrders = await repo.Purchases.ToArrayAsync();
@@ -38,10 +41,11 @@ This is my project blazor page-->
         CompletedOrders = AllOrders.Where(x => x.OrderCompleted);
     }
 
+    // Set the complete order varaible
     public void CompleteOrder(int id) => UpdateOrder(id, true);
     public void ResetOrder(int id) => UpdateOrder(id, false);
 
-
+    // Update order function
     private void UpdateOrder(int id, bool donated)
     {
         Purchase d = repo.Purchases.FirstOrDefault(x => x.OrderId == id);

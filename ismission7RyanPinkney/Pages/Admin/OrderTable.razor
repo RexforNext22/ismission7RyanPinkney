@@ -1,4 +1,9 @@
-﻿<table class="table table-sm table-striped table-bordered">
+﻿<!--Author Ryan Pinkney
+This is my assisting file for the order razor page
+-->
+
+<!--Table to display order information-->
+<table class="table table-sm table-striped table-bordered">
     <thread>
         <tr>
             <th colspan="5" class="text-center">@TableTitle</th>
@@ -7,6 +12,7 @@
     </thread>
 
     <tbody>
+        <!--Check to make sure the count is greater than 0-->
         @if (Orders?.Count() > 0)
         {
             @foreach (Purchase d in Orders)
@@ -25,6 +31,7 @@
 
 
                 </tr>
+                <!-- Display each order attributes-->
                 @foreach (BasketLineItem bli in d.Lines)
                 {
                     <tr>
@@ -47,7 +54,7 @@
 </table>
 
 @code {
-
+    // Set the parameters of the table
     [Parameter]
     public string TableTitle { get; set; } = "Books";
 

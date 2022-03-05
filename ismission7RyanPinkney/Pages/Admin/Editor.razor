@@ -2,7 +2,11 @@
 @page "/admin/books/create"
 @inherits OwningComponentBase<iBookstoreRepository>
 
+<!--Author Ryan Pinkney
+    this is my editor page
 
+    -->
+<!--Show the field errors-->
 <style>
     div.validation-message {
         color: rgb(220,53,69);
@@ -10,9 +14,10 @@
     }
 </style>
 
+<!--Set the book titles-->
 <h3 class="bg-@ThemeColor text-white text-center p-1">@TitleText a Book</h3>
 
-
+<!-- Form to create and edit a book-->
 <EditForm Model="p" OnValidSubmit="SaveBook">
 
     <DataAnnotationsValidator></DataAnnotationsValidator>
@@ -81,7 +86,7 @@
 
     </div>
 
-
+    <!-- Buttons to submit and cancel-->
     <button type="submit" class="btn btn-@ThemeColor">Save</button>
     <NavLink class="btn btn-secondary" href="/admin">Cancel</NavLink>
 
@@ -93,12 +98,15 @@
 
 @code {
 
+    // Set the parameters
     [Parameter]
     public long Id { get; set; }
 
+    // Set the razor varaibles
     public string ThemeColor => Id == 0 ? "primary" : "warning";
     public string TitleText => Id == 0 ? "Create" : "Edit";
 
+    // Configure the datanase
     public Books p { get; set; } = new Books();
 
     public iBookstoreRepository repo => Service;
@@ -111,7 +119,7 @@
         }
     }
 
-
+    // Save a book function
     public void SaveBook()
     {
         if (Id == 0)
@@ -126,6 +134,7 @@
         NavManager.NavigateTo("/admin", true);
     }
 
+    // Bring in the navigation manager
     [Inject]
     public NavigationManager NavManager { get; set; }
 

@@ -1,8 +1,13 @@
 ﻿@page "/admin/books/details/{id:long}"
 
+<!--Author Ryan Pinkney
 
+    This is my view book details page
+    -->
+<!--Title-->
 <h3 class="bg-info text-white text-center p-1">Details</h3>
 
+<!--Display all the fields-->
 <table class="table table-sm table-striped table-bordered">
     <tbody>
         <tr><th>Book ID:</th><td>@book.BookId</td></tr>
@@ -17,15 +22,18 @@
     </tbody>
 </table>
 
+<!--Edit and back buttong-->
 <NavLink class="btn btn-warning" href="@EditUrl">Edit</NavLink>
 <NavLink class="btn btn-secondary" href="/admin">Back</NavLink>
 
 
 @code {
 
+    // Set the database
     [Inject]
     public iBookstoreRepository repo { get; set; }
 
+    //Define parameters
     [Parameter]
     public long Id { get; set; }
 
@@ -36,7 +44,7 @@
         book = repo.Books.FirstOrDefault(x => x.BookId == Id);
     }
 
-
+    // Set the edit url
     public string EditUrl => $"/admin/books/edit/{book.BookId}";
 
 
