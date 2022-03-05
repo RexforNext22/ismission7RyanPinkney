@@ -79,12 +79,15 @@
 
     </div>
 
-    <div class="form-group">
-        <label>Price:</label>
+    <!--THIS IS MY SECOND NEW BOOTSTRAP ITEM; SPECIAL FORMATIING FOR MONEY; USING THE INPUT GROUP TEXT CLASS-->
+    <div class="input-group">
+        <span class="input-group-text">$</span>
         <ValidationMessage For="@(() => p.Price)"></ValidationMessage>
         <InputNumber class="form-control" @bind-Value="p.Price"></InputNumber>
-
+        <span class="input-group-text">.00</span>
     </div>
+
+
 
     <!-- Buttons to submit and cancel-->
     <button type="submit" class="btn btn-@ThemeColor">Save</button>
