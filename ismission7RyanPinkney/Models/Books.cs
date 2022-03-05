@@ -21,15 +21,19 @@ namespace ismission7RyanPinkney.Models
         public int BookId { get; set; }
 
         // Field to store the title
+        [Required]
         public string Title { get; set; }
 
         // Field to store the author
+        [Required]
         public string Author { get; set; }
 
         // Field to store the publisher
+        [Required]
         public string Publisher { get; set; }
 
         // Field to store the ISBN
+        [Required]
         public string Isbn { get; set; }
 
         // Field to store the classification

@@ -7,9 +7,9 @@
     </thread>
 
     <tbody>
-        @if (Purchases?.Count() > 0)
+        @if (Orders?.Count() > 0)
         {
-            @foreach (Purchase d in Purchases)
+            @foreach (Purchase d in Orders)
             {
                 <tr>
                     <td>@d.Name</td>
@@ -18,7 +18,7 @@
                     <th>Quantity</th>
 
                     <td>
-                        <button class="btn btn-small btn-danger" @onclick="@(x => OrderSelected.InvokeAsync(d.OrderId))">
+                        <button class="btn btn-small btn-info" @onclick="@(x => OrderSelected.InvokeAsync(d.OrderId))">
                             @ButtonLabel
                         </button>
                     </td>
@@ -52,7 +52,7 @@
     public string TableTitle { get; set; } = "Books";
 
     [Parameter]
-    public IEnumerable<Purchase> Purchases { get; set; }
+    public IEnumerable<Purchase> Orders { get; set; }
 
     [Parameter]
     public string ButtonLabel { get; set; } = "Completed";

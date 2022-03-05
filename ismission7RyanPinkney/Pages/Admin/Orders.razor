@@ -1,19 +1,20 @@
-﻿<!--Author: Ryan Pinkney
+﻿@page "/admin/orders"
+@inherits OwningComponentBase<iPurchaseRepository>
+<!--Author: Ryan Pinkney
 
 This is my project blazor page-->
-@page "/admin/orders"
-@inherits OwningComponentBase<iPurchaseRepository>
 
-<OrdersTable TableTitle="Uncompleted Orders" Orders="UncompletedOrders" ButtonLabel="Complete" OrderSelected="CompleteOrder">
+<OrderTable TableTitle="Uncompleted Orders" Orders="UncompletedOrders" ButtonLabel="Complete" OrderSelected="CompleteOrder">
 
-</OrdersTable>
+</OrderTable>
 
-<OrdersTable TableTitle="Completed Orders" Orders="CompletedOrders" ButtonLabel="Reset" OrderSelected="ResetOrder">
+<OrderTable TableTitle="Completed Orders" Orders="CompletedOrders" ButtonLabel="Reset" OrderSelected="ResetOrder">
 
-</OrdersTable>
+</OrderTable>
 
 
 <button class="btn btn-info" @onclick="@(x => UpdateData())">Refresh Data</button>
+
 
 @code {
 

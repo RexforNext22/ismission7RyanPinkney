@@ -1,43 +1,48 @@
-﻿<!--Author: Ryan Pinkney
-
-This is my project blazor page-->
-@page "/admin/books"
+﻿@page "/admin/books"
 @page "/admin/"
 @inherits OwningComponentBase<iBookstoreRepository>
 
+<!--Author Ryan Pinkney
+
+    This is the book view for the blazor pages
+    -->
+
+<!--Table to display the books-->
 <table class="table table-sm table-striped table-bordered">
 
 
     <thead>
         <tr>
-            <th>Project Id</th>
-            <th>Project Name</th>
-            <th>Regional Program</th>
+            <th>Book Id</th>
+            <th>Title</th>
+            <th>Publisher</th>
         </tr>
     </thead>
     <tbody>
+        <!--If statement to verify that the count is greater than 0-->
         @if (BookData?.Count() > 0)
         {
-            @foreach (Book p in BookData)
+            @foreach (Books p in BookData)
             {
                 <tr>
-                    <td>@p.Book</td>
-                    <td>@p.ProjectName</td>
-                    <td>@p.ProjectRegionalProgram</td>
+                    <!--Display the bookid, title, and publisher-->
+                    <td>@p.BookId</td>
+                    <td>@p.Title</td>
+                    <td>@p.Publisher</td>
 
                     <!--Details Button-->
                     <td>
-                        <NavLink class="btn btn-info btn-sm" href="@GetDetailsUrl(p.ProjectId)">Details</NavLink>
+                        <NavLink class="btn btn-info btn-sm" href="@GetDetailsUrl(p.BookId)">Details</NavLink>
                     </td>
 
                     <!--Edit button-->
                     <td>
-                        <NavLink class="btn btn-warning btn-sm" href="@GetEditUrl(p.ProjectId)">Edit</NavLink>
+                        <NavLink class="btn btn-warning btn-sm" href="@GetEditUrl(p.BookId)">Edit</NavLink>
                     </td>
 
                     <!--Delete button-->
                     <td>
-                        <button class="btn btn-danger btn-sm" @onclick="@(x => RemoveProject(p))">Delete</button>
+                        <button class="btn btn-danger btn-sm" @onclick="@(x => RemoveBook(p))">Delete</button>
                     </td>
 
 
@@ -49,19 +54,18 @@ This is my project blazor page-->
         }
         else
         {
-        <td colspan="5" class="text-center">No Projects</td>
+        <td colspan="5" class="text-center">No Books</td>
     }
         </tbody>
     </table>
 
 
     <!--Button to create a project-->
-    <NavLink class="btn btn-primary" href="admin/projects/create">Create</NavLink>
-
+    <NavLink class="btn btn-primary" href="admin/books/create">Create</NavLink>
 
     @code {
 
-
+        // Set the repository
         public iBookstoreRepository repo => Service;
 
         public IEnumerable<Books> BookData { get; set; }
@@ -71,16 +75,19 @@ This is my project blazor page-->
             await UpdateData();
         }
 
+        // Set bookdata
         public async Task UpdateData()
         {
             BookData = await repo.Books.ToListAsync();
         }
 
+        // Get the urls
         public string GetDetailsUrl(long id) => $"/admin/books/details/{id}";
 
         public string GetEditUrl(long id) => $"/admin/books/edit/{id}";
 
-        public async Task RemoveProject(Books p)
+        // Update the files
+        public async Task RemoveBook(Books p)
         {
             repo.DeleteBook(p);
             await UpdateData();

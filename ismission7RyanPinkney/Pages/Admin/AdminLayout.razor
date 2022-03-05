@@ -1,5 +1,8 @@
 ﻿@inherits LayoutComponentBase
 
+<!--Autho Ryan Pinkney
+This is my admin shared layout that is used in all the blazor pages
+-->
 <div class="bg-info text-white p-2">
     <span class="navbar-brand m-lg-2">Bookstore Administration</span>
 </div>
@@ -7,6 +10,7 @@
 <div class="container-fluid">
     <div class="row p-2">
 
+        <!--Navigation buttons-->
         <div class="col-3 d-grid">
             <NavLink class="btn btn-outline-primary" href="/admin/books"
                      ActiveClass="btn-primary text-white" Match="NavLinkMatch.Prefix">Books</NavLink>
@@ -14,6 +18,7 @@
                      ActiveClass="btn-primary text-white" Match="NavLinkMatch.Prefix">Orders</NavLink>
         </div>
 
+        <!--Body of the html goes here-->
         <div class="col">
             @Body
 
