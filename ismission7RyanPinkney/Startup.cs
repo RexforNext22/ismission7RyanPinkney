@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -40,6 +41,19 @@ namespace ismission7RyanPinkney
             {
                 options.UseSqlite(Configuration["ConnectionString:RPConnection"]);
             });
+
+            // Set up for the identity database
+            services.AddDbContext<AppIdentityDBContext>(options =>
+            {
+                options.UseSqlite(Configuration["ConnectionString:IdentityConnection"]);
+
+            });
+
+
+            services.AddIdentity<IdentityUser, IdentityRole>()
+            .AddEntityFrameworkStores<AppIdentityDBContext>();
+
+
 
             // Add this to add the repository; service configuration for the repository
             services.AddScoped<iBookstoreRepository, efBookstoreRepository>();
@@ -82,10 +96,11 @@ namespace ismission7RyanPinkney
 
             //Add this for sessions; added by ryan
             app.UseSession();
-
-
             app.UseRouting();
 
+
+            // For Identity set up
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

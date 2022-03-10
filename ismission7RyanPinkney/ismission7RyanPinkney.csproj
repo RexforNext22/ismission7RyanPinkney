@@ -20,6 +20,7 @@
     <None Remove="Font.Awesome" />
     <None Remove="Views\Shared\Components\CartSummary\" />
     <None Remove="Pages\Admin\" />
+    <None Remove="Microsoft.AspNetCore.Identity.EntityFrameworkCore" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.22" />
@@ -34,6 +35,7 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.22" />
     <PackageReference Include="Twitter.Bootstrap" Version="3.0.1.1" />
     <PackageReference Include="Font.Awesome" Version="5.15.4" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.21" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Infrastructure\" />
