@@ -1,0 +1,90 @@
+﻿<!-- Author Ryan Pinkney
+
+    This is my login form page
+
+    -->
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    // Take out the shared layout for the views
+    Layout = null;
+}
+
+<!--Bring in the model-->
+@model Login
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+
+    <title>Admin Login</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+
+<body>
+
+    <!--Navigation Bar-->
+    <div class="bg-dark text-white p-2">
+        <span class="navbar-brand m-1-2">Water Project</span>
+    </div>
+
+    <!--Form-->
+    <div class="m-1 p-1">
+
+        <div class="text-danger" data-validation-summary="All"></div>
+
+        <form method="post" asp-controller="Account" asp-action="Login">
+
+            <div class="row">
+                <div class="col">
+
+                    <!--Username-->
+                    <div class="input-group form-floating">
+                        <label asp-for="Username">Username:</label>
+                        <input asp-for="Username" class="form-control" />
+                    </div><br />
+
+
+
+
+                </div>
+                <div class="col">
+
+                    <!--Password-->
+                    <div class="input-group form-floating">
+                        <label asp-for="Password">Password:</label>
+                        <input type="password" asp-for="Password" class="form-control" />
+                    </div><br />
+
+
+
+                </div>
+            </div>
+
+
+
+
+            <!--Submit-->
+            <button class="btn btn-primary" type="submit">Log In</button>
+
+
+            <input type="hidden" asp-for="ReturnUrl" />
+
+        </form>
+
+
+    </div>
+
+
+
+
+
+
+</body>
+
+
+</html>

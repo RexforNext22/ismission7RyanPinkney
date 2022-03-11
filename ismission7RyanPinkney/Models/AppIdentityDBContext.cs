@@ -1,4 +1,8 @@
-﻿using System;
+﻿// Author Ryan Pinkney
+// This is my db context file for the new database
+
+
+using System;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;

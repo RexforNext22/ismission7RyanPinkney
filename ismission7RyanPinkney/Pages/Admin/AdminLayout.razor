@@ -3,7 +3,19 @@
 This is my admin shared layout that is used in all the blazor pages
 -->
 <div class="bg-info text-white p-2">
-    <span class="navbar-brand m-lg-2">Bookstore Administration</span>
+    <div class="container-fluid">
+
+        <div class="col">
+            <span class="navbar-brand m-lg-2">Bookstore Admin Page</span>
+
+        </div>
+
+        <!-- THIS IS MY SECOND NEW BOOTSTRAP THING FOR MISSION 11; badge rounded-pill bg-dark-->
+        <div class="col-2 text-right">
+            <a class="badge rounded-pill bg-dark" href="/account/logout">Log Out</a>
+        </div>
+
+    </div>
 </div>
 
 <!-- THIS IS MY FIRST NEW BOOTSTRAP STYLING ELEMENT; I AM USING THE ALERT CLASS-->

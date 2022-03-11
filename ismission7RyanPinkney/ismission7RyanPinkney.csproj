@@ -21,6 +21,7 @@
     <None Remove="Views\Shared\Components\CartSummary\" />
     <None Remove="Pages\Admin\" />
     <None Remove="Microsoft.AspNetCore.Identity.EntityFrameworkCore" />
+    <None Remove="Views\Account\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.22" />
@@ -47,5 +48,6 @@
     <Folder Include="Views\Purchase\" />
     <Folder Include="Views\Shared\Components\CartSummary\" />
     <Folder Include="Pages\Admin\" />
+    <Folder Include="Views\Account\" />
   </ItemGroup>
 </Project>

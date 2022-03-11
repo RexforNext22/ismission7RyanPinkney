@@ -145,6 +145,10 @@ namespace ismission7RyanPinkney
                 endpoints.MapFallbackToPage("/admin/{*catchall}", "/Admin/Index");
 
             });
+
+
+            // Seed the admin user
+            IdentitySeedData.EnsurePopulated(app);
         }
     }
 }
